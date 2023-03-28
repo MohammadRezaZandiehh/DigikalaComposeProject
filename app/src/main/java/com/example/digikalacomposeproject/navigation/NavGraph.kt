@@ -17,3 +17,6 @@ fun SetupNavGraph(navController: NavHostController) {
         }
     }
 }
+
+/**
+ * each composable: when we start each screen, which composable Functions should be started*/
