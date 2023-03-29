@@ -8,6 +8,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.digikalacomposeproject.R
 
+/**lottie loading animation: */
 @Composable
 fun Loading3Dots(isDark: Boolean) {
     if (isDark) {
@@ -23,5 +24,4 @@ fun Loading3Dots(isDark: Boolean) {
             iterations = LottieConstants.IterateForever
         )
     }
-
 }
