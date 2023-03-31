@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.digikalacomposeproject.navigation.BottomNavigationBar
 import com.example.digikalacomposeproject.navigation.SetupNavGraph
 import com.example.digikalacomposeproject.ui.theme.DigikalaComposeProjectTheme
 
@@ -22,8 +23,12 @@ class MainActivity : ComponentActivity() {
                 navController = rememberNavController()
 
                 Scaffold(
-                    bottomBar ={
-                        //Todo
+                    bottomBar = {
+                        BottomNavigationBar(
+                            navController = navController,
+                            onItemClick = {
+                                navController.navigate(it.route)
+                            })
                     }
                 ) {
                     SetupNavGraph(navController = navController)
@@ -32,3 +37,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+/**
+ * navController.navigate(it.route) --> when you click on each item, go navigate on it item! (by its rout)*/
