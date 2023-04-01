@@ -17,7 +17,6 @@ import com.example.digikalacomposeproject.R
 import com.example.digikalacomposeproject.navigation.Screen
 import com.example.digikalacomposeproject.ui.components.Loading3Dots
 import kotlinx.coroutines.delay
-import okhttp3.internal.notify
 
 @Composable
 fun SplashScreen(navController: NavHostController) {

@@ -7,13 +7,13 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.digikalacomposeproject.R
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.digikalacomposeproject.R
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.digikalacomposeproject.ui.theme.selectedBottomBar
 import com.example.digikalacomposeproject.ui.theme.unSelectedBottomBar
@@ -26,30 +26,31 @@ fun BottomNavigationBar(
 ) {
     val items = listOf(
         BottomNavItem(
-            name = "Home",
+            name = "خانه",
             route = Screen.Home.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            unSelectedIcon = painterResource(id = R.drawable.digi_logo)
+            selectedIcon = painterResource(id = R.drawable.home_fill),
+            unSelectedIcon = painterResource(id = R.drawable.home_outline)
         ),
         BottomNavItem(
-            name = "Category",
+            name = "دسته بندی",
             route = Screen.Category.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            unSelectedIcon = painterResource(id = R.drawable.digi_logo)
+            selectedIcon = painterResource(id = R.drawable.category_fill),
+            unSelectedIcon = painterResource(id = R.drawable.category_outline)
         ),
         BottomNavItem(
-            name = "Basket",
+            name = "سبد خرید",
             route = Screen.Basket.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            unSelectedIcon = painterResource(id = R.drawable.digi_logo)
+            selectedIcon = painterResource(id = R.drawable.cart_fill),
+            unSelectedIcon = painterResource(id = R.drawable.cart_outline)
         ),
         BottomNavItem(
-            name = "Profile",
+            name = "پروفایل",
             route = Screen.Profile.route,
-            selectedIcon = painterResource(id = R.drawable.digi_logo),
-            unSelectedIcon = painterResource(id = R.drawable.digi_logo)
+            selectedIcon = painterResource(id = R.drawable.user_fill),
+            unSelectedIcon = painterResource(id = R.drawable.user_outline)
         )
     )
+
     //condition of showing the bottomNavigation (e.g: where we should show or not):
     val backStackEntry = navController.currentBackStackEntryAsState()
     val showBottomBar = backStackEntry.value?.destination?.route in items.map { it.route }
@@ -88,7 +89,7 @@ fun BottomNavigationBar(
                             Text(
                                 text = item.name,
                                 textAlign = TextAlign.Center,
-                                style = MaterialTheme.typography.h1,
+                                style = MaterialTheme.typography.h6,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(top = 5.dp)
                             )
