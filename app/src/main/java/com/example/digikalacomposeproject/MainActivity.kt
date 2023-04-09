@@ -2,6 +2,7 @@ package com.example.digikalacomposeproject
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
@@ -13,12 +14,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.digikalacomposeproject.navigation.BottomNavigationBar
 import com.example.digikalacomposeproject.navigation.SetupNavGraph
+import com.example.digikalacomposeproject.ui.components.AppConfig
 import com.example.digikalacomposeproject.ui.theme.DigikalaComposeProjectTheme
 import com.example.digikalacomposeproject.util.Constants
 import com.example.digikalacomposeproject.util.Constants.ENGLISH_LANG
 import com.example.digikalacomposeproject.util.Constants.PERSIAN_LANG
+import com.example.digikalacomposeproject.util.Constants.USER_LANGUAGE
 import com.example.digikalacomposeproject.util.LocaleUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navController: NavHostController
@@ -30,9 +35,18 @@ class MainActivity : ComponentActivity() {
             DigikalaComposeProjectTheme {
                 navController = rememberNavController()
 
-                LocaleUtils.setLocale(LocalContext.current, ENGLISH_LANG)
+                AppConfig()
+                Log.e("3636", USER_LANGUAGE)
 
-                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr ) {
+                LocaleUtils.setLocale(LocalContext.current, USER_LANGUAGE)
+
+                val direction = if (USER_LANGUAGE == ENGLISH_LANG) {
+                    LayoutDirection.Ltr
+                } else {
+                    LayoutDirection.Rtl
+                }
+
+                CompositionLocalProvider(LocalLayoutDirection provides direction) {
                     Scaffold(
                         bottomBar = {
                             BottomNavigationBar(
