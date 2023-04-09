@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.digikalacomposeproject.navigation.BottomNavigationBar
 import com.example.digikalacomposeproject.navigation.SetupNavGraph
 import com.example.digikalacomposeproject.ui.components.AppConfig
+import com.example.digikalacomposeproject.ui.components.ChangeStatusBarColor
 import com.example.digikalacomposeproject.ui.theme.DigikalaComposeProjectTheme
 import com.example.digikalacomposeproject.util.Constants
 import com.example.digikalacomposeproject.util.Constants.ENGLISH_LANG
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DigikalaComposeProjectTheme {
                 navController = rememberNavController()
-
+                ChangeStatusBarColor(navController = navController)
                 AppConfig()
                 Log.e("3636", USER_LANGUAGE)
 

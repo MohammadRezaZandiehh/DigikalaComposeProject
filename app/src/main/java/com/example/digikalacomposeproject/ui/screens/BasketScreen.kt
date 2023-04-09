@@ -1,5 +1,7 @@
 package com.example.digikalacomposeproject.ui.screens
 
+import android.content.res.Configuration
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -66,6 +68,6 @@ fun BasketLightPreview() {
 
 @Composable
 @Preview
-fun BasketDarkPreview() {
+fun BasketDarkPreview(uiMode: Int = UI_MODE_NIGHT_YES) {
     BasketDark()
 }
