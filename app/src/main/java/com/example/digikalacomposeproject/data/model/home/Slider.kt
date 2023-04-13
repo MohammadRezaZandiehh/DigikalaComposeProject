@@ -1,4 +1,4 @@
-package ir.truelearn.digikala.data.model.home
+package com.example.digikalacomposeproject.data.model.home
 
 data class Slider(
     val _id: String,
