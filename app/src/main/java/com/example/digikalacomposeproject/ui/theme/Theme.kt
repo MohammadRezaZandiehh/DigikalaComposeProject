@@ -1,7 +1,9 @@
 package com.example.digikalacomposeproject.ui.theme
 
+import android.graphics.drawable.shapes.Shape
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Shapes
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
@@ -38,7 +40,7 @@ fun DigikalaComposeProjectTheme(darkTheme: Boolean = isSystemInDarkTheme(), cont
     MaterialTheme(
         colors = colors,
         typography = Typography,
-        shapes = Shapes,
+        shapes = Shapes(),
         content = content
     )
 }
