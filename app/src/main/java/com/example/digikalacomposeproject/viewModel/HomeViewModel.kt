@@ -14,7 +14,19 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
 
     suspend fun getSlider() {
         viewModelScope.launch {
-            slider.emit(repository.getSlider())
+            val sliders = repository.getSlider()
+            when(sliders){
+                is NetworkResult.Success -> {
+
+                }
+                is NetworkResult.Error -> {
+
+                }
+                is NetworkResult.Loading -> {
+                    
+                }
+            }
+            slider.emit(sliders)
         }
     }
 }
