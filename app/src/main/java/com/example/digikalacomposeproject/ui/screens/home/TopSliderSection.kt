@@ -32,7 +32,7 @@ import kotlinx.coroutines.delay
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 @Preview
-fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
+fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
 
     var sliderList by remember {
         mutableStateOf<List<Slider>>(emptyList())
@@ -64,6 +64,10 @@ fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
             .fillMaxWidth()
             .height(200.dp)
             .background(Color.White)
+            .padding(
+                horizontal = LocalSpacing.current.extraSmall,
+                vertical = LocalSpacing.current.small
+            )
     ) {
         Column(
             modifier = Modifier
@@ -74,10 +78,12 @@ fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
                     vertical = LocalSpacing.current.small
                 )
         ) {
+
             val pagerState = rememberPagerState()
             var imageUrl by remember {
                 mutableStateOf("")
             }
+
             HorizontalPager(
                 count = sliderList.size,
                 state = pagerState,
@@ -91,6 +97,7 @@ fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.BottomCenter
                 ) {
+//use coil library:
                     val painter = rememberAsyncImagePainter(
                         ImageRequest.Builder(LocalContext.current)
                             .data(data = imageUrl)
@@ -136,7 +143,8 @@ fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
 
 
 /**
- * 1- val sliderResult by viewModel.slider.collectAsState() --> actually define viewModel.slider as a state. so
+ * 1- val sliderResult by viewModel.slider.collectAsState() --> actually define viewModel.slider as a state until
+ * work to compose so better. so
  * we do not need to 1-LaunchedEffect(key1 = true) &&and&& 2-viewModel.slider.collectLatest {}
  *
  * 2- instead of writing like this: sliderList/data?.let{sliderList = it}  we can write better than:
