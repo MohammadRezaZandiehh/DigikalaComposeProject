@@ -2,6 +2,7 @@ package com.example.digikalacomposeproject.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.digikalacomposeproject.data.model.home.AmazingItem
 import com.example.digikalacomposeproject.data.model.home.Slider
 import com.example.digikalacomposeproject.data.remote.NetworkResult
 import com.example.digikalacomposeproject.repo.HomeRepository
@@ -14,10 +15,25 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repository: HomeRepository) : ViewModel() {
 
     val slider = MutableStateFlow<NetworkResult<List<Slider>>>(NetworkResult.Loading())
+    val amazingItem = MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
 
-    suspend fun getSlider(){
+    suspend fun getAllDataFromServer() {
         viewModelScope.launch {
-            slider.emit(repository.getSlider())
+
+//fire and forget:
+            launch {
+                slider.emit(repository.getSlider())
+            }
+
+            launch {
+                amazingItem.emit(repository.getAmazingItems())
+            }
+
         }
     }
 }
+
+/**
+ * fire and forget: when we have some apiCall that they do not depend together, we should use this design pattern
+ * to increase the speed of calling apis "call apis in the most speed condition".
+ * we should attention if apis depend together we should use Async $$ Await*/

@@ -1,5 +1,6 @@
 package com.example.digikalacomposeproject.data.remote
 
+import com.example.digikalacomposeproject.data.model.home.AmazingItem
 import com.example.digikalacomposeproject.data.model.ResponseResult
 import com.example.digikalacomposeproject.data.model.home.Slider
 import retrofit2.Response
@@ -9,4 +10,8 @@ interface HomeApiInterface {
 
     @GET("v1/getSlider")
     suspend fun getSlider(): Response<ResponseResult<List<Slider>>>
+
+    @GET("v1/getAmazingProducts")
+    suspend fun getAmazingItems() : Response<ResponseResult<List<AmazingItem>>>
+
 }

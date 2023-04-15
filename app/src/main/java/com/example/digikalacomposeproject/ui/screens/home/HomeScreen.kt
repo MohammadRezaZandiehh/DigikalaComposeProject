@@ -59,13 +59,14 @@ fun SwipeRefreshSection(viewModel: HomeViewModel, navController: NavHostControll
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item { SearchBarSection() }
             item { TopSliderSection() }
+//            item { Show() }
         }
     }
 }
 
 
 private suspend fun refreshDataFromServer(viewModel: HomeViewModel) {
-    viewModel.getSlider()
+    viewModel.getAllDataFromServer()
 }
 
 
