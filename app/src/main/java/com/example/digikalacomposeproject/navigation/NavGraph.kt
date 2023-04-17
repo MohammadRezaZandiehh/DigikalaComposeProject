@@ -2,10 +2,13 @@ package com.example.digikalacomposeproject.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.digikalacomposeproject.ui.screens.*
 import com.example.digikalacomposeproject.ui.screens.home.HomeScreen
+import com.example.digikalacomposeproject.ui.screens.home.WebPageScreen
 
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
@@ -31,6 +34,22 @@ fun SetupNavGraph(navController: NavHostController) {
 
         composable(route = Screen.Profile.route) {
             ProfileScreen(navController = navController)
+        }
+
+
+
+        composable(
+            route = Screen.WebView.route + "?url={url}",
+            arguments = listOf(navArgument("url") {
+                type = NavType.StringType
+                defaultValue = ""
+                nullable = true
+            })
+        ) {
+            val url = it.arguments?.getString("url")
+            url?.let {
+                WebPageScreen(navController = navController, url = url)
+            }
         }
 
     }

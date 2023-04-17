@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.compose.runtime.*
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikalacomposeproject.data.model.home.AmazingItem
-import com.example.digikalacomposeproject.data.model.home.Slider
 import com.example.digikalacomposeproject.data.remote.NetworkResult
 import com.example.digikalacomposeproject.viewModel.HomeViewModel
 

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -15,6 +16,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.digikalacomposeproject.ui.theme.LocalShape
 import com.example.digikalacomposeproject.ui.theme.LocalSpacing
@@ -22,6 +24,7 @@ import com.example.digikalacomposeproject.ui.theme.darkText
 
 
 @Composable
+//@Preview
 fun RoundedIconBox(
     title: String,
     image: Painter,
@@ -33,7 +36,9 @@ fun RoundedIconBox(
             .width(80.dp)
             .clickable {
                 onClick
-            }
+            },
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
