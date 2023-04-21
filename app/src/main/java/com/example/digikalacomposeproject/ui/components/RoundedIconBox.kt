@@ -35,7 +35,7 @@ fun RoundedIconBox(
         modifier = Modifier
             .width(80.dp)
             .clickable {
-                onClick
+                onClick()
             },
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
