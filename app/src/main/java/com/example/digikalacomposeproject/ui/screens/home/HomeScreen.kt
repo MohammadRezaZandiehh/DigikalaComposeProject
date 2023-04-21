@@ -7,8 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.digikalacomposeproject.util.Constants
+import com.example.digikalacomposeproject.util.LocaleUtils
 import com.example.digikalacomposeproject.viewModel.HomeViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -24,6 +27,8 @@ fun Home(
     navController: NavHostController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+    //for debug of change language when we click on each webView item and go back to app:
+    LocaleUtils.setLocale(LocalContext.current, Constants.USER_LANGUAGE)
 
     LaunchedEffect(true) {
         refreshDataFromServer(viewModel)
