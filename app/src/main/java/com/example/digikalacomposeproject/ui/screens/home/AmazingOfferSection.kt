@@ -1,11 +1,19 @@
 package com.example.digikalacomposeproject.ui.screens.home
 
 import android.util.Log
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.digikalacomposeproject.data.model.home.AmazingItem
 import com.example.digikalacomposeproject.data.remote.NetworkResult
+import com.example.digikalacomposeproject.ui.theme.DigikalaLightRed
 import com.example.digikalacomposeproject.viewModel.HomeViewModel
+import com.example.digikalacomposeproject.R
 
 @Composable
 fun AmazingOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
@@ -34,4 +42,38 @@ fun AmazingOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
             loading = true
         }
     }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colors.DigikalaLightRed)
+    ) {
+
+        LazyRow(modifier = Modifier.background(MaterialTheme.colors.DigikalaLightRed)) {
+
+            item {
+                AmazingOfferCard(R.drawable.amazings, R.drawable.box)
+            }
+            item {
+                AmazingOfferCard(R.drawable.amazings, R.drawable.box)
+            }
+            item {
+                AmazingOfferCard(R.drawable.amazings, R.drawable.box)
+            }
+            item {
+                AmazingOfferCard(R.drawable.amazings, R.drawable.box)
+            }
+            item {
+                AmazingOfferCard(R.drawable.amazings, R.drawable.box)
+            }
+
+        }
+    }
 }
+
+
+
+
+
+
+
