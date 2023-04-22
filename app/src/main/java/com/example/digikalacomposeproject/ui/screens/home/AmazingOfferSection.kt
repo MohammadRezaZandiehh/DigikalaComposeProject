@@ -66,6 +66,9 @@ fun AmazingOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
             item {
                 AmazingOfferCard(R.drawable.amazings, R.drawable.box)
             }
+            item {
+                AmazingShowMoreItem()
+            }
 
         }
     }
