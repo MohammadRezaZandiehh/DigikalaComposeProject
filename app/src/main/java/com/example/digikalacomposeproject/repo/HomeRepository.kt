@@ -11,7 +11,7 @@ import javax.inject.Inject
 class HomeRepository @Inject constructor(
     private val homeApiInterface: HomeApiInterface
 ) : BaseApiResponse() {
-    suspend fun getSlider():NetworkResult<List<Slider>> = safeApiCall {
+    suspend fun getSlider(): NetworkResult<List<Slider>> = safeApiCall {
         homeApiInterface.getSlider()
     }
 
@@ -30,4 +30,10 @@ class HomeRepository @Inject constructor(
     suspend fun getCategories(): NetworkResult<List<MainCategory>> = safeApiCall {
         homeApiInterface.getCategories()
     }
+
+    suspend fun getCenterBanners(): NetworkResult<List<Slider>> =
+        safeApiCall {
+            homeApiInterface.getCenterBanners()
+        }
+
 }
