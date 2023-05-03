@@ -47,7 +47,7 @@ fun AmazingOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-
+            .background(MaterialTheme.colors.DigikalaLightRed)
     ) {
 
         LazyRow(modifier = Modifier.background(MaterialTheme.colors.DigikalaLightRed)) {

@@ -21,4 +21,8 @@ class HomeRepository @Inject constructor(
     suspend fun getAmazingSuperMarketItems(): NetworkResult<List<AmazingItem>> = safeApiCall {
         homeApiInterface.getAmazingSuperMarketItems()
     }
+
+    suspend fun getProposalBanners(): NetworkResult<List<Slider>> = safeApiCall {
+        homeApiInterface.getProposalBanners()
+    }
 }
