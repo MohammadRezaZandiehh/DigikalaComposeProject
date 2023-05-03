@@ -61,6 +61,8 @@ fun SwipeRefreshSection(viewModel: HomeViewModel, navController: NavHostControll
             item { ShowCaseSection(navController) }
             item { AmazingOfferSection() }
 
+            item { SuperMarketOfferSection() }
+
         }
     }
 }
