@@ -68,13 +68,11 @@ fun SwipeRefreshSection(viewModel: HomeViewModel, navController: NavHostControll
             item { SuperMarketOfferSection() }
             item { CategoryListSection() }
             item { CenterBannerSection(1) }
-            item { MostVisitedOfferSection() }
-            item { CenterBannerSection(2) }
-
             item { BestSellerOfferSection() }
-
+            item { CenterBannerSection(2) }
+            item { MostFavoriteProductSection() }
             item { CenterBannerSection(3) }
-
+            item { MostVisitedOfferSection() }
             item { CenterBannerSection(4) }
 
             item { CenterBannerSection(5) }
