@@ -66,7 +66,6 @@ fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .background(Color.White)
                 .padding(
                     horizontal = LocalSpacing.current.extraSmall,
                     vertical = LocalSpacing.current.small
@@ -75,7 +74,6 @@ fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.White)
                     .padding(
                         horizontal = LocalSpacing.current.extraSmall,
                         vertical = LocalSpacing.current.small

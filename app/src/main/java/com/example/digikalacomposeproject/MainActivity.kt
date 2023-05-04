@@ -35,8 +35,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             DigikalaComposeProjectTheme {
 
-
-
                 navController = rememberNavController()
                 ChangeStatusBarColor(navController = navController)
                 AppConfig()

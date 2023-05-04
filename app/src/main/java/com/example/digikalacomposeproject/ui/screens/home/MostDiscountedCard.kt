@@ -144,7 +144,7 @@ fun MostDiscountedCard(item: StoreProduct) {
                                 fontWeight = FontWeight.SemiBold,
                             )
 
-                            Image(
+                            Icon(
                                 painter = painterResource(id = R.drawable.toman),
                                 contentDescription = "",
                                 modifier = Modifier

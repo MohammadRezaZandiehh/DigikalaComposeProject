@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.digikalacomposeproject.R
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.digikalacomposeproject.ui.theme.bottomBar
 import com.example.digikalacomposeproject.ui.theme.selectedBottomBar
 import com.example.digikalacomposeproject.ui.theme.unSelectedBottomBar
 import com.example.digikalacomposeproject.util.Constants
@@ -25,7 +26,6 @@ import com.example.digikalacomposeproject.util.LocaleUtils
 @Composable
 fun BottomNavigationBar(
     navController: NavController,
-    modifier: Modifier = Modifier,
     onItemClick: (BottomNavItem) -> Unit
 ) {
 
@@ -40,19 +40,19 @@ fun BottomNavigationBar(
             unSelectedIcon = painterResource(id = R.drawable.home_outline)
         ),
         BottomNavItem(
-            name =  stringResource(id = R.string.category),
+            name = stringResource(id = R.string.category),
             route = Screen.Category.route,
             selectedIcon = painterResource(id = R.drawable.category_fill),
             unSelectedIcon = painterResource(id = R.drawable.category_outline)
         ),
         BottomNavItem(
-            name =  stringResource(id = R.string.basket),
+            name = stringResource(id = R.string.basket),
             route = Screen.Basket.route,
             selectedIcon = painterResource(id = R.drawable.cart_fill),
             unSelectedIcon = painterResource(id = R.drawable.cart_outline)
         ),
         BottomNavItem(
-            name =  stringResource(id = R.string.my_digikala),
+            name = stringResource(id = R.string.my_digikala),
             route = Screen.Profile.route,
             selectedIcon = painterResource(id = R.drawable.user_fill),
             unSelectedIcon = painterResource(id = R.drawable.user_outline)
@@ -65,8 +65,9 @@ fun BottomNavigationBar(
 
     if (showBottomBar) {
         BottomNavigation(
-            modifier = modifier,
-            backgroundColor = Color.White,
+            modifier = Modifier
+                .height(60.dp),
+            backgroundColor = MaterialTheme.colors.bottomBar,
             elevation = 5.dp
         ) {
             items.forEachIndexed { index, item ->
