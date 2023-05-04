@@ -50,7 +50,7 @@ fun AmazingOfferSection(viewModel: HomeViewModel = hiltViewModel()) {
             .background(MaterialTheme.colors.DigikalaLightRed)
     ) {
 
-        LazyRow(modifier = Modifier.background(MaterialTheme.colors.DigikalaLightRed)) {
+        LazyRow(/*modifier = Modifier.background(MaterialTheme.colors.DigikalaLightRed)*/) {
 
             item {
                 AmazingOfferCard(R.drawable.amazings, R.drawable.box)

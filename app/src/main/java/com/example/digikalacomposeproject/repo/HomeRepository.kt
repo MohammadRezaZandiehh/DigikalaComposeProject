@@ -3,6 +3,7 @@ package com.example.digikalacomposeproject.repo
 import com.example.digikalacomposeproject.data.model.home.AmazingItem
 import com.example.digikalacomposeproject.data.model.home.MainCategory
 import com.example.digikalacomposeproject.data.model.home.Slider
+import com.example.digikalacomposeproject.data.model.home.StoreProduct
 import com.example.digikalacomposeproject.data.remote.BaseApiResponse
 import com.example.digikalacomposeproject.data.remote.HomeApiInterface
 import com.example.digikalacomposeproject.data.remote.NetworkResult
@@ -34,6 +35,16 @@ class HomeRepository @Inject constructor(
     suspend fun getCenterBanners(): NetworkResult<List<Slider>> =
         safeApiCall {
             homeApiInterface.getCenterBanners()
+        }
+
+    suspend fun getBestSellerItems(): NetworkResult<List<StoreProduct>> =
+        safeApiCall {
+            homeApiInterface.getBestSellerItems()
+        }
+
+    suspend fun getMostVisitedItems(): NetworkResult<List<StoreProduct>> =
+        safeApiCall {
+            homeApiInterface.getMostVisitedItems()
         }
 
 }
