@@ -1,5 +1,6 @@
 package com.example.digikalacomposeproject.ui.screens.home
 
+
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -74,7 +75,7 @@ fun SwipeRefreshSection(viewModel: HomeViewModel, navController: NavHostControll
             item { CenterBannerSection(3) }
             item { MostVisitedOfferSection() }
             item { CenterBannerSection(4) }
-
+            item { MostDiscountedSection() }
             item { CenterBannerSection(5) }
 
         }
