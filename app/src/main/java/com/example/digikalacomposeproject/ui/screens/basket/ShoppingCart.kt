@@ -10,8 +10,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ShoppingCart() {
-    EmptyBasketShopping()
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
