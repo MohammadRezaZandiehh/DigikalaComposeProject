@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -23,6 +24,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.digikalacomposeproject.R
 import com.example.digikalacomposeproject.data.model.home.AmazingItem
 import com.example.digikalacomposeproject.ui.theme.*
+import com.example.digikalacomposeproject.util.Constants
 import com.example.digikalacomposeproject.util.DigitHelper.applyDiscount
 import com.example.digikalacomposeproject.util.DigitHelper.digitByLocate
 import com.example.digikalacomposeproject.util.DigitHelper.digitByLocateAndSeparator
@@ -144,7 +146,7 @@ fun AmazingItem(item: AmazingItem) {
                             .wrapContentHeight(Alignment.CenterVertically)
                     ) {
                         Text(
-                            text = "${digitByLocate(item.discountPercent.toString())}%",
+                            text = "${digitByLocateAndSeparator(item.discountPercent.toString())}%",
                             color = Color.White,
                             style = MaterialTheme.typography.h6,
                             fontWeight = FontWeight.Bold,
@@ -156,13 +158,18 @@ fun AmazingItem(item: AmazingItem) {
 
                         Row {
                             Text(
-                                text = digitByLocateAndSeparator(applyDiscount(item.price , item.discountPercent).toString()),
+                                text = digitByLocateAndSeparator(
+                                    applyDiscount(
+                                        item.price,
+                                        item.discountPercent
+                                    ).toString()
+                                ),
                                 style = MaterialTheme.typography.body2,
                                 fontWeight = FontWeight.SemiBold,
                             )
 
                             Icon(
-                                painter = painterResource(id = R.drawable.toman),
+                                painter = currencyLogoChangeByLanguage(),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .size(MaterialTheme.spacing.semiLarge)
@@ -184,8 +191,18 @@ fun AmazingItem(item: AmazingItem) {
     }
 }
 
+
+@Composable
+private fun currencyLogoChangeByLanguage(): Painter {
+    return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANG) {
+        painterResource(id = R.drawable.dollar)
+    } else {
+        painterResource(id = R.drawable.toman)
+    }
+}
+
 /**
  *  textDecoration = TextDecoration.LineThrough  --> draw a line on text
  *
  *  .wrapContentWidth(Alignment.CenterHorizontally)
-    .wrapContentHeight(Alignment.CenterVertically)         ==> put content in the box on center*/
+.wrapContentHeight(Alignment.CenterVertically)         ==> put content in the box on center*/
