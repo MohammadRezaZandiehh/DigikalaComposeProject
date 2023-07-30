@@ -9,6 +9,9 @@ object Constants {
     const val TIMEOUT_IN_SECOND: Long = 60
     const val BASE_URL = "https://truelearn-digikala.iran.liara.run/api/"
     const val API_KEY = BuildConfig.X_API_KEY
+    const val SHOPPING_CART_ITEM = "shopping_cart"
+    const val DATABASE_NAME = "digikala_db"
+
     var USER_LANGUAGE = "USER_LANGUAGE"
 
     const val DIGIJET_URL = "https://www.digikalajet.com/user/address"
