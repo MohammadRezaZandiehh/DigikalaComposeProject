@@ -18,6 +18,9 @@ import com.example.digikalacomposeproject.ui.theme.searchBarBg
 import com.example.digikalacomposeproject.ui.theme.spacing
 import com.example.digikalacomposeproject.viewModel.BasketViewModel
 import com.example.digikalacomposeproject.R
+import com.example.digikalacomposeproject.data.model.basket.CartItem
+import com.example.digikalacomposeproject.data.model.basket.CartStatus
+import com.example.digikalacomposeproject.ui.screens.category.SuggestionItemCard
 import com.example.digikalacomposeproject.ui.screens.home.MostDiscountedCard
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -77,7 +80,20 @@ fun SuggestListSection(
     ) {
 
         for (item in suggestedList) {
-            MostDiscountedCard(item)
+            SuggestionItemCard(item){
+                viewModel.insertCartItem(
+                    CartItem(
+                        itemId = it._id,
+                        name = it.name,
+                        seller = it.seller,
+                        price = it.price,
+                        discountPercent = it.discountPercent,
+                        image = it.image,
+                        1,
+                        cartStatus = CartStatus.CURRENT_CART
+                    )
+                )
+            }
         }
     }
 }
