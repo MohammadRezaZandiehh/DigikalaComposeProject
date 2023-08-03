@@ -9,6 +9,7 @@ import com.example.digikalacomposeproject.data.remote.NetworkResult
 import com.example.digikalacomposeproject.repo.BasketRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,6 +20,7 @@ class BasketViewModel @Inject constructor(
 ) : ViewModel() {
 
     val suggestedList = MutableStateFlow<NetworkResult<List<StoreProduct>>>(NetworkResult.Loading())
+    val currentCartItems: Flow<List<CartItem>> = repository.currentCartItems
 
     fun getSuggestionItem() {
         viewModelScope.launch {

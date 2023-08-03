@@ -2,6 +2,7 @@ package com.example.digikalacomposeproject.repo
 
 import com.example.digikalacomposeproject.data.db.CartDao
 import com.example.digikalacomposeproject.data.model.basket.CartItem
+import com.example.digikalacomposeproject.data.model.basket.CartStatus
 import com.example.digikalacomposeproject.data.model.home.StoreProduct
 import com.example.digikalacomposeproject.data.remote.BaseApiResponse
 import com.example.digikalacomposeproject.data.remote.BasketApiInterface
@@ -13,6 +14,8 @@ class BasketRepository @Inject constructor(
     private val dao: CartDao
 ) :
     BaseApiResponse() {
+
+    val currentCartItems = dao.getAllItems(CartStatus.CURRENT_CART)
 
     suspend fun getSuggestionList(): NetworkResult<List<StoreProduct>> =
         safeApiCall {
