@@ -17,9 +17,7 @@ import com.example.digikalacomposeproject.navigation.SetupNavGraph
 import com.example.digikalacomposeproject.ui.components.AppConfig
 import com.example.digikalacomposeproject.ui.components.ChangeStatusBarColor
 import com.example.digikalacomposeproject.ui.theme.DigikalaComposeProjectTheme
-import com.example.digikalacomposeproject.util.Constants
 import com.example.digikalacomposeproject.util.Constants.ENGLISH_LANG
-import com.example.digikalacomposeproject.util.Constants.PERSIAN_LANG
 import com.example.digikalacomposeproject.util.Constants.USER_LANGUAGE
 import com.example.digikalacomposeproject.util.LocaleUtils
 import dagger.hilt.android.AndroidEntryPoint
