@@ -66,6 +66,7 @@ fun Basket(
                         Row {
                             Text(
                                 text = title,
+                                style = MaterialTheme.typography.h6,
                                 fontWeight = FontWeight.SemiBold
                             )
                         }
@@ -76,7 +77,7 @@ fun Basket(
 
         when (selectedTabState) {
             0 -> ShoppingCart()
-            1 -> NextShoppingCart()
+            1 -> NextShoppingList()
         }
     }
 }

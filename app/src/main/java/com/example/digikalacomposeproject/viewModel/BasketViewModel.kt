@@ -1,6 +1,5 @@
 package com.example.digikalacomposeproject.viewModel
 
-import android.app.admin.NetworkEvent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.digikalacomposeproject.data.model.basket.CartItem
@@ -21,7 +20,9 @@ class BasketViewModel @Inject constructor(
 ) : ViewModel() {
 
     val suggestedList = MutableStateFlow<NetworkResult<List<StoreProduct>>>(NetworkResult.Loading())
+
     val currentCartItems: Flow<List<CartItem>> = repository.currentCartItems
+    val nextCartItems: Flow<List<CartItem>> = repository.nextCartItems
 
     fun getSuggestionItem() {
         viewModelScope.launch {
