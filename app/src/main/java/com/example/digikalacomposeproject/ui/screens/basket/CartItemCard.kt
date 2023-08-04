@@ -60,6 +60,7 @@ fun CartItemCard(
     viewModel: BasketViewModel = hiltViewModel()
 ) {
 
+//item.count -> it has in current database:
     val count = remember {
         mutableStateOf(item.count)
     }
@@ -273,7 +274,7 @@ fun CartItemCard(
                             tint = MaterialTheme.colors.digikalaRed,
                             modifier = Modifier.clickable {
                                 count.value++
-//                                viewModel.changeCartItemCount(item.itemId , count.value)
+                                viewModel.changeCartItemCount(item.itemId, count.value)
                             }
                         )
 
@@ -289,11 +290,11 @@ fun CartItemCard(
 
                         if (count.value == 1) {
                             Icon(
-                                painterResource(id = R.drawable.store),
+                                painterResource(id = R.drawable.digi_trash),
                                 contentDescription = "increase icon",
                                 tint = MaterialTheme.colors.digikalaRed,
                                 modifier = Modifier.clickable {
-//                                    viewModel.removeCartItem(item)
+                                    viewModel.removeCartItem(item)
                                 }
                             )
                         } else {
@@ -303,15 +304,11 @@ fun CartItemCard(
                                 tint = MaterialTheme.colors.digikalaRed,
                                 modifier = Modifier.clickable {
                                     count.value--
-//                                    viewModel.changeCartItemCount(item.itemId , count.value)
+                                    viewModel.changeCartItemCount(item.itemId , count.value)
                                 }
                             )
                         }
-
-
                     }
-
-
                 }
 
 

@@ -19,7 +19,7 @@ val font_standard = FontFamily(
     Font(R.font.iranyekan)
 )
 
-//Custom font:
+
 val Typography.extraBoldNumber : TextStyle
     @Composable
     get() = TextStyle(
@@ -27,6 +27,7 @@ val Typography.extraBoldNumber : TextStyle
         fontWeight = FontWeight.Bold,
         fontSize = 26.sp,
     )
+
 
 val Typography.extraSmall : TextStyle
     @Composable
@@ -44,7 +45,6 @@ val Typography.veryExtraSmall : TextStyle
     )
 
 
-// Set of Material typography styles to start with
 val Typography = Typography(
 
     body1 = TextStyle(

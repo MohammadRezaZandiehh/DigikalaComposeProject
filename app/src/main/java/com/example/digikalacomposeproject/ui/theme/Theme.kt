@@ -1,6 +1,5 @@
 package com.example.digikalacomposeproject.ui.theme
 
-import android.graphics.drawable.shapes.Shape
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Shapes
