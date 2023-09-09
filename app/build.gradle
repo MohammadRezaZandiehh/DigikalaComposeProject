@@ -110,6 +110,9 @@ dependencies {
 
     //BUgfender
     implementation 'com.bugfender.sdk:android:3.+'
+
+    //Clarity
+    implementation "com.microsoft.clarity:clarity:$clarity_version"
 }
 
 

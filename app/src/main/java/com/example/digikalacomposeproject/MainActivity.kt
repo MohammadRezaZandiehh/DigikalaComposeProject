@@ -23,6 +23,8 @@ import com.example.digikalacomposeproject.util.Constants.PERSIAN_LANG
 import com.example.digikalacomposeproject.util.Constants.USER_LANGUAGE
 import com.example.digikalacomposeproject.util.LocaleUtils
 import dagger.hilt.android.AndroidEntryPoint
+import com.microsoft.clarity.Clarity
+import com.microsoft.clarity.ClarityConfig
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -32,6 +34,10 @@ class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val config = ClarityConfig("il88fdky1q")
+        Clarity.initialize(applicationContext, config)
+
         setContent {
             DigikalaComposeProjectTheme {
 
